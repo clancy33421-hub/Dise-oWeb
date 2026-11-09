@@ -1,176 +1,226 @@
+
 <!DOCTYPE html>
-<html lang="es">
- 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax</title>
-    <style>
-        body {
-            margin: 0;
-            background-color: #f3f3f3;
-        }
- 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
- 
-        #parallax-container {
-            position: relative;
-            height: 100vh;
-            /* Ocupa el 100% de la altura de la ventana */
-            overflow: hidden;
-            /* Oculta el desbordamiento */
-        }
- 
-        #layer1 {
-            /*Debe de tenerlo cada imagen*/position: absolute;
-            z-index: 1;
-            /* El más bajo el del fondo*/
-            background-image: url('Img/Garden.webp');
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
- 
-       
-        #layer2 {
-            position: absolute;
-            /*Debe de tenerlo cada imagen para ver el órden de las capas*/z-index: 3;
-            /* Medio */
-            top: 0;
-            margin-top: 300px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
- 
-       
-        #layer3 {
-            position: absolute;
-            /* El más alto */
-            z-index: 4;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
- 
-       
-        #layer4 {
-            position: absolute;
-            z-index: 5;
-            /* El más alto */
-            margin-top: -150px;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        #layer5 {
-            position: absolute;
-            /* El más bajo */
-            z-index: 6;
-            margin-top: 500px;
-            top: 100px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
- 
-        .completo {
-            width: 100%;
-            height: 50%;
-        }
- 
-        /* --- Contenido (Debajo del Parallax) --- */
-        .contenido {
-            padding: 50px 20px;
-            background-color: #2c6829;
-            text-align: center;
-            min-height: 1000px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>plantas</title>
 </head>
- 
 <body>
- 
-    <div id="parallax-container">
- 
-        <div id="layer1"></div>
- 
-        <div id="layer2">
-            <img src="Img/Magearna_Original_Forme.webp">
-        </div>
- 
-        <div id="layer3">
-            <img class="completo" src="Img/8ac13583852c88b4490f2cc6f56d65aa.png">
-        </div>
- 
-        <div id="layer4">
-            <img class="completo" src="Img/gold-frame-page-divider-free-png.webp">
+    
+    <main>
+        <div class="selector">
+            <a href="index.html"><h2>Plantas</h2> </a>
+            <a href="zombies.html"><h2>Zombies</h2></a>
         </div>
 
-        <div id="layer5">
-            <img class="completo" src="Img/botanical-leaf-and-flower-watercolor-frame-border-png.png">
+        <!-- Filtros -->
+        <div class="categorias">
+            <a href="#Ataque"><img src="/imagenes/iconos/espadas.png" alt="Ataque"></a>
+            <a href="#Defensivas"><img src="/imagenes/iconos/escudo.png" alt="Defensivas"></a>
+            <a href="#Explosivas"><img src="/imagenes/iconos/bomba.png" alt="Explosivas"></a>
+            <a href="#Produccion"><img src="/imagenes/iconos/sol.png" alt="Producción"></a>
+            <a href="#Setas"><img src="/imagenes/iconos/seta.png" alt="Setas"></a>
+            <a href="#Utilidad"><img src="/imagenes/iconos/estrella.png" alt="Utilidad"></a>
+            <a href="#Especiales"><img src="/imagenes/iconos/especiales.png" alt="Especiales"></a>
         </div>
- 
-    </div>
- 
-    <section class="contenido">
-       
-    </section>
- 
-    <script>
-       
-        document.addEventListener('DOMContentLoaded', function () {
-           
-            const container = document.getElementById('parallax-container');
-            const layer1 = document.getElementById('layer1');
-            const layer2 = document.getElementById('layer2');
-            const layer3 = document.getElementById('layer3');
-            const layer4 = document.getElementById('layer4');
-            const layer5 = document.getElementById('layer5');
- 
-            //Definimos las velocidades de desplazamiento
-            const speed1 = -0.1; // El fondo se mueve más rápido
-            const speed2 = 0.2;
-            const speed3 = -0.8; // El frente se mueve más lento
-            const speed4 = -0.8; // El frente se mueve más lento
-            const speed5 = 0.2; // El frente se mueve más lento
- 
-             function updateParallax() {
-                // Es para que obtengamos la posición de scroll del elemento contenedor (respecto al top de la ventana)
-                const scrollOffset = container.getBoundingClientRect().top;
- 
-                // Multiplicamos el desplazamiento por la velocidad de cada capa
- 
-                layer1.style.transform = `translate3d(0, ${scrollOffset * speed1}px, 0)`;
- 
-                layer2.style.transform = `translate3d(0, ${scrollOffset * speed2}px, 0)`;
- 
-                layer3.style.transform = `translate3d(0, ${scrollOffset * speed3}px, 0)`;
- 
-                layer4.style.transform = `translate3d(0, ${scrollOffset * speed4}px, 0)`;
 
-                layer5.style.transform = `translate3d(0, ${scrollOffset * speed5}px, 0)`;
- 
-            }
- 
-            //Agregamos el listener para el evento
-           window.addEventListener('scroll', updateParallax);
- 
-           
-            updateParallax();
-        });
-    </script>
+        <div id="Ataque" class="encabezado">
+            <img src="/imagenes/iconos/espadas.png" alt="Ataque">
+            <p>Ataque</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/Lanzaguisantes.jpg" alt="Lanzaguisantes">
+                    <h4>Lanzaguisantes</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Hielaguisantes.jpg" alt="">
+                    <h4>hielaguisantes</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Repetidora.jpg" alt="">
+                    <h4>Repetidora</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Tripitidora.jpg" alt="">
+                    <h4>Tripitidora</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Bipetidora.jpg" alt="">
+                    <h4>Bipetidora</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Defensivas" class="encabezado">
+            <img src="/imagenes/iconos/escudo.png" alt="Defensa">
+            <p>Defensivas</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/nuez.jpg" alt="Nuez">
+                    <h4>Nuez</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/nuez-cascarabias.jpg" alt="Nuez Cáscara-rabias">
+                    <h4>Nuez</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/calabaza.jpg" alt="Calabaza">
+                    <h4>Calabaza</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Pinchohierba.jpg" alt="Pinchohierba">
+                    <h4>Pinchohierba</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Paraplanta.jpg" alt="Paraplanta">
+                    <h4>Paraplanta</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Explosivas" class="encabezado">
+            <img src="/imagenes/iconos/bomba.png" alt="Explosivas">
+            <p>Explosivas</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/petacereza.jpg" alt="Petacereza">
+                    <h4>Petacereza</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/patatapum.jpg" alt="Patatapum">
+                    <h4>Patatapum</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Jalapeño.jpg" alt="Jalapeño">
+                    <h4>Jalapeño</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/petaseta.jpg" alt="Petaseta">
+                    <h4>Petaseta</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/mazorcañon.jpg" alt="Mazorcañón">
+                    <h4>Mazorcañón</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Produccion" class="encabezado">
+            <img src="/imagenes/iconos/sol.png" alt="Produccion">
+            <p>Producción</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/Girasol.jpg" alt="Girasol">
+                    <h4>Girasol</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Seta solar.jpg" alt="Seta solar">
+                    <h4>Seta solar</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Birasol.jpg" alt="Birasol">
+                    <h4>Birasol</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Setas" class="encabezado">
+            <img src="/imagenes/iconos/seta.png" alt="Setas">
+            <p>Setas</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/setas/Seta desesporada.jpg" alt="Seta desesporada">
+                    <h4>Seta desesporada</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/setas/humoseta.jpg" alt="Humoseta">
+                    <h4>Humoseta</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/setas/hipnoseta.jpg" alt="Hipnoseta">
+                    <h4>Hipnoseta</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/setas/seta miedica.jpg" alt="Seta miedica">
+                    <h4>Seta miedica</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/setas/seta congelada.jpg" alt="Seta congelada">
+                    <h4>Seta congelada</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Utilidad" class="encabezado">
+            <img src="/imagenes/iconos/estrella.png" alt="Utilidad">
+            <p>Utilidad</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/Utilidad/Nenufar.jpg" alt="Nenúfar">
+                    <h4>Nenúfar</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Utilidad/Comepiedras.jpg" alt="Comepiedras">
+                    <h4>Comepiedras</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Utilidad/Planta carnívora_.jpg" alt="Planta carnivora">
+                    <h4>Planta Carnivora</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Utilidad/Calabacin.jpg" alt="Calabacín">
+                    <h4>Calabacín</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Utilidad/Zampalga.jpg" alt="Zampalga">
+                    <h4>Zampalga</h4>
+                </article>
+            </div>
+        </div>
+
+        <div id="Especiales" class="encabezado">
+            <img src="/imagenes/iconos/especiales.png" alt="Especiales">
+            <p>Especiales</p>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            <div class="tarjetas">
+                <article>
+                    <img src="/imagenes/Especiales/Nuez Gigante.jpg" alt="Nuez gigante">
+                    <h4>Nuez gigante</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Especiales/Margarita.jpg" alt="Margarita">
+                    <h4>Margarita</h4>
+                </article>
+                <article>
+                    <img src="/imagenes/Especiales/Imitadora.jpg" alt="Imitadora">
+                    <h4>Imitadora</h4>
+                </article>
+            </div>
+        </div>
+
+    </main>
+    
 </body>
- 
 </html>
