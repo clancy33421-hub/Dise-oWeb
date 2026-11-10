@@ -1,6 +1,4 @@
 
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -11,7 +9,35 @@ body {
     margin: 0;
 }
 
+header {
+    background-color: #1B6B47;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    position: relative;
+    height: 100px;
+}
 
+.logo {
+    height: 70px;
+    position: absolute;
+    left: 30px;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+    justify-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
 
 .selector {
     background-color: #103029;
@@ -24,8 +50,6 @@ body {
     text-decoration: none;
     color: white;
 }
-
-
 
 .categorias {
     background-color: #137547;
@@ -40,8 +64,6 @@ body {
     width: 35px;
     padding: 10px;
 }
-
-
 
 .encabezado {
     background-color: #09571A;
@@ -58,8 +80,6 @@ body {
     width: 25px;
     margin-right: 20px;
 }
-
-
 
 .tarjetas {
     display: flex;
@@ -97,11 +117,30 @@ body {
 }
 
 
-
+/* CELULAR */
 
 @media (max-width: 500px) {
 
-  
+    header {
+        height: 58px;
+        padding: 5px 10px;
+    }
+
+    .logo {
+        height: 45px;
+        left: 12px;
+    }
+
+    header nav {
+        margin-left: 65px;
+        width: calc(100% - 65px);
+        justify-content: space-around;
+        gap: 5px;
+    }
+
+    header nav a {
+        font-size: 7px;
+    }
 
     .selector {
         justify-content: space-around;
@@ -111,8 +150,6 @@ body {
     .selector h2 {
         font-size: 16px;
     }
-
-
 
     .categorias {
         justify-content: space-around;
@@ -124,8 +161,6 @@ body {
         width: 30px;
         padding: 5px;
     }
-
-
 
     .encabezado {
         width: 90%;
@@ -145,8 +180,6 @@ body {
         font-weight: bold;
     }
 
-  
-
     .contenedor-tarjetas {
         width: 100%;
         overflow-x: auto;
@@ -159,8 +192,6 @@ body {
     .contenedor-tarjetas::-webkit-scrollbar {
         display: none;
     }
-
-  
 
     .tarjetas {
         display: flex;
@@ -190,14 +221,89 @@ body {
         font-size: 16px;
         margin: 4px 0 0;
     }
+
+    footer {
+        padding: 20px 12px;
+    }
+
+    .footer-enlaces {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 20px;
+    }
+
+    .footer-enlaces a {
+        font-size: 12px;
+    }
+
+    .footer-logos {
+        gap: 25px;
+        margin-top: 20px;
+    }
+
+    .footer-logos img {
+        height: 28px;
+    }
 }
 
 
+/* FOOTER */
 
+footer {
+    background: linear-gradient(#1B6B47, #14804D);
+    padding: 30px 20px;
+}
+
+.footer-enlaces {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-enlaces a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 25px;
+}
+
+.footer-logos img {
+    height: 40px;
+}
+
+
+/* TABLET */
 
 @media screen and (max-width: 768px) and (min-width: 501px) {
 
-  
+    header {
+        height: 72px;
+        padding: 8px 15px;
+    }
+
+    .logo {
+        height: 55px;
+        left: 25px;
+    }
+
+    header nav {
+        margin-left: 110px;
+        width: calc(100% - 110px);
+        justify-content: space-around;
+        gap: 15px;
+    }
+
+    header nav a {
+        font-size: 9px;
+    }
 
     .selector {
         justify-content: space-around;
@@ -207,8 +313,6 @@ body {
     .selector h2 {
         font-size: 14px;
     }
-
-  
 
     .categorias {
         justify-content: space-around;
@@ -220,8 +324,6 @@ body {
         width: 30px;
         padding: 5px;
     }
-
-   
 
     .encabezado {
         width: 90%;
@@ -241,8 +343,6 @@ body {
         font-weight: bold;
     }
 
-
-
     .contenedor-tarjetas {
         width: 100%;
         overflow-x: auto;
@@ -255,8 +355,6 @@ body {
     .contenedor-tarjetas::-webkit-scrollbar {
         display: none;
     }
-
-  
 
     .tarjetas {
         display: flex;
@@ -285,5 +383,28 @@ body {
     .tarjetas h4 {
         font-size: 12px;
         margin: 0;
+    }
+
+    footer {
+        padding: 25px 15px;
+    }
+
+    .footer-enlaces {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px 25px;
+    }
+
+    .footer-enlaces a {
+        font-size: 13px;
+    }
+
+    .footer-logos {
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .footer-logos img {
+        height: 35px;
     }
 }
