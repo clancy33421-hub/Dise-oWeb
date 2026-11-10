@@ -1,226 +1,172 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>plantas</title>
+    <title>PIKMIN</title>
+
+    <style>
+
+body{
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+}
+
+main{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(170, 227, 83);
+    width: 500px;
+    height: 550px;
+}
+
+select{
+    background-color: beige;
+    border-radius: 5px;
+    border: 3px solid #66975f;
+    border-radius: 8px;
+    color: rgb(85, 52, 25);
+}
+
+button{
+    background-color: beige;
+    border-radius: 5px;
+    border: 3px solid #66975f;
+    border-radius: 8px;
+    color: rgb(85, 52, 25);
+}
+
+#Logo{
+    margin-top: 20px;
+    width: 280px;
+}
+
+#resultado{
+    font-size: 16px;
+    background-color: #f2fada;
+    width: 475px;
+    margin-left: 12.5px;
+    color: #324e34;
+}
+
+</style>
+
 </head>
+
 <body>
-    
+
     <main>
-        <div class="selector">
-            <a href="index.html"><h2>Plantas</h2> </a>
-            <a href="zombies.html"><h2>Zombies</h2></a>
-        </div>
 
-        <!-- Filtros -->
-        <div class="categorias">
-            <a href="#Ataque"><img src="/imagenes/espadas.png" alt="Ataque"></a>
-            <a href="#Defensivas"><img src="/imagenes/escudo.png" alt="Defensivas"></a>
-            <a href="#Explosivas"><img src="/imagenes/bomba.png" alt="Explosivas"></a>
-            <a href="#Produccion"><img src="/imagenes/sol.png" alt="Producción"></a>
-            <a href="#Setas"><img src="/imagenes/seta.png" alt="Setas"></a>
-            <a href="#Utilidad"><img src="/imagenes/estrella.png" alt="Utilidad"></a>
-            <a href="#Especiales"><img src="/imagenes/especiales.png" alt="Especiales"></a>
-        </div>
+    <img src="IMG/Pikmin_3_Logo.png" alt="" width="280px" id="Logo">
+    <br><br>
+    <p style="font-size: 18px; color: #194724;"><b>Elige a tu equipo:</b></p>
 
-        <div id="Ataque" class="encabezado">
-            <img src="/imagenes/espadas.png" alt="Ataque">
-            <p>Ataque</p>
-        </div>
+    <select id="personaje">
+        <option value="1">Alph</option>
+        <option value="2">Brittany</option>
+        <option value="3">Captain Charlie</option>
+    </select>
 
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/Lanzaguisantes.jpg" alt="Lanzaguisantes">
-                    <h4>Lanzaguisantes</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Hielaguisantes.jpg" alt="hielaguisantes">
-                    <h4>hielaguisantes</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Repetidora.jpg" alt="Repetidora">
-                    <h4>Repetidora</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Tripitidora.jpg" alt="Tripitidora">
-                    <h4>Tripitidora</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Bipetidora.jpg" alt="Bipetidora">
-                    <h4>Bipetidora</h4>
-                </article>
-            </div>
-        </div>
+    <select id="pikmin">
+        <option value="4">Pikmin Rojo</option>
+        <option value="5">Pikmin Azul</option>
+        <option value="6">Pikmin Amarillo</option>
+    </select>
+ 
+    <button id="boton">¡Comienza el día!</button>
 
-        <div id="Defensivas" class="encabezado">
-            <img src="/imagenes/escudo.png" alt="Defensa">
-            <p>Defensivas</p>
-        </div>
+    <br><br>
+    <div id="resultado"></div>
+    <br>
+    <img id="img-personaje" src="" alt="Personaje" style="display: none; width: 80px; margin-right: 10px;">
+    <img id="img-pikmin" src="" alt="Pikmin" style="display: none; width: 80px;">
+ 
+    <script>
+        console.log("Bienvenido al mundo de Pikmin 3!");
+ 
+        var personaje = "Tripulante"; 
+        var cantidad = "3"; 
+        const juego = "Pikmin";
 
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/nuez.jpg" alt="Nuez">
-                    <h4>Nuez</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/nuez-cascarabias.jpg" alt="Nuez Cáscara-rabias">
-                    <h4>Nuez Cáscara-rabias</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/calabaza.jpg" alt="Calabaza">
-                    <h4>Calabaza</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Pinchohierba.jpg" alt="Pinchohierba">
-                    <h4>Pinchohierba</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Paraplanta.jpg" alt="Paraplanta">
-                    <h4>Paraplanta</h4>
-                </article>
-            </div>
-        </div>
+        console.log(personaje);
+        console.log(cantidad, juego);
+ 
+        document.write("<p>Contaras con 3 Pikmin!</p>");
+ 
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", dioClick);
+ 
+        function dioClick() {
+            let personajeJugador = document.getElementById("personaje").value;
+            let pikminJugador = document.getElementById("pikmin").value;
+            let mensaje = "";
+            let imagenPersonaje = "";
+            let imagenPikmin = "";
 
-        <div id="Explosivas" class="encabezado">
-            <img src="/imagenes/bomba.png" alt="Explosivas">
-            <p>Explosivas</p>
-        </div>
+            switch (personajeJugador) {
+                case "1":
+                    personaje = "Alph"; 
+                    mensaje = "Elegiste como personaje jugable a <b>ALPH</b>. <br> ";
+                    imagenPersonaje = "IMG/Alph.png";
+                    break;
+                case "2":
+                    personaje = "Brittany"; 
+                    mensaje = "Elegiste como personaje jugable a <b>BRITTANY</b>. <br> ";
+                    imagenPersonaje = "IMG/Brittany.png";
+                    break;
+                case "3":
+                    personaje = "Captain Charlie"; 
+                    mensaje = "Elegiste como personaje jugable a <b>CAPTAIN CHARLIE</b>. <br> ";
+                    imagenPersonaje = "IMG/Charlie.png";
+                    break;
+            }
+            
+            console.log(personaje);
 
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/petacereza.jpg" alt="Petacereza">
-                    <h4>Petacereza</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/patatapum.jpg" alt="Patatapum">
-                    <h4>Patatapum</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Jalapeño.jpg" alt="Jalapeño">
-                    <h4>Jalapeño</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/petaseta.jpg" alt="Petaseta">
-                    <h4>Petaseta</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/mazorcañon.jpg" alt="Mazorcañón">
-                    <h4>Mazorcañón</h4>
-                </article>
-            </div>
-        </div>
+            if (personajeJugador == "1") {
+                mensaje = mensaje +"<i>''¡PNF-404 , allá vamos!''</i> <br> ";
+            } else if (personajeJugador == "2") {
+                mensaje = mensaje + "<i>''¡Soy yo, Brittany! ¿Me recibes?''</i> <br> ";
+            } else if (personajeJugador == "3") {
+                mensaje = mensaje + "<i>''Aqui Charlie... Respondan.''</i> <br> ";
+            }
 
-        <div id="Produccion" class="encabezado">
-            <img src="/imagenes/sol.png" alt="Produccion">
-            <p>Producción</p>
-        </div>
 
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/Girasol.jpg" alt="Girasol">
-                    <h4>Girasol</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Seta solar.jpg" alt="Seta solar">
-                    <h4>Seta solar</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Birasol.jpg" alt="Birasol">
-                    <h4>Birasol</h4>
-                </article>
-            </div>
-        </div>
+            switch (pikminJugador) {
+                case "4":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>PIKMIN ROJOS</b>. <br> ";
+                    imagenPikmin = "IMG/Red_Pikmin.webp";
+                    break;
+                case "5":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>PIKMIN AZULES</b>. <br> ";
+                    imagenPikmin = "IMG/Blue_Pikmin.webp";
+                    break;
+                case "6":
+                    mensaje = mensaje + "Los pikmin de tu tripulacion seran <b>PIKMIN AMARILLOS</b>. <br> ";
+                    imagenPikmin = "IMG/Yellow_Pikmin.webp";
+                    break;
+            }
+ 
+ 
+            for (let i = 1; i<=3; i++) {
+                console.log(juego + " número " + i + ": Listo");
+            }
+ 
+            document.getElementById("resultado").innerHTML = mensaje;
 
-        <div id="Setas" class="encabezado">
-            <img src="/imagenes/seta.png" alt="Setas">
-            <p>Setas</p>
-        </div>
+            let elPersonaje = document.getElementById("img-personaje");
+            elPersonaje.src = imagenPersonaje;
+            elPersonaje.style.display = "inline-block";
 
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/Seta desesporada.jpg" alt="Seta desesporada">
-                    <h4>Seta desesporada</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/humoseta.jpg" alt="Humoseta">
-                    <h4>Humoseta</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/hipnoseta.jpg" alt="Hipnoseta">
-                    <h4>Hipnoseta</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/seta miedica.jpg" alt="Seta miedica">
-                    <h4>Seta miedica</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/seta congelada.jpg" alt="Seta congelada">
-                    <h4>Seta congelada</h4>
-                </article>
-            </div>
-        </div>
-
-        <div id="Utilidad" class="encabezado">
-            <img src="/imagenes/estrella.png" alt="Utilidad">
-            <p>Utilidad</p>
-        </div>
-
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/Nenufar.jpg" alt="Nenúfar">
-                    <h4>Nenúfar</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Comepiedras.jpg" alt="Comepiedras">
-                    <h4>Comepiedras</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Planta carnívora_.jpg" alt="Planta carnivora">
-                    <h4>Planta Carnivora</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Calabacin.jpg" alt="Calabacín">
-                    <h4>Calabacín</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Zampalga.jpg" alt="Zampalga">
-                    <h4>Zampalga</h4>
-                </article>
-            </div>
-        </div>
-
-        <div id="Especiales" class="encabezado">
-            <img src="/imagenes/especiales.png" alt="Especiales">
-            <p>Especiales</p>
-        </div>
-
-        <div class="contenedor-tarjetas">
-            <div class="tarjetas">
-                <article>
-                    <img src="/imagenes/Nuez Gigante.jpg" alt="Nuez gigante">
-                    <h4>Nuez gigante</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Margarita.jpg" alt="Margarita">
-                    <h4>Margarita</h4>
-                </article>
-                <article>
-                    <img src="/imagenes/Imitadora.jpg" alt="Imitadora">
-                    <h4>Imitadora</h4>
-                </article>
-            </div>
-        </div>
+            let elPikmin = document.getElementById("img-pikmin");
+            elPikmin.src = imagenPikmin;
+            elPikmin.style.display = "inline-block";
+ 
+        }
+ 
+    </script>
 
     </main>
-    
+   
 </body>
 </html>
